@@ -1,0 +1,14 @@
+.header{
+  height: 53px;
+  background-image: linear-gradient(to right, #2BC4DD, #3489D1);
+}
+.content{
+  padding: 0px 30px;
+  background: #f9f9f9;
+}
+.heading{
+  font-size: 32px;
+  color: #17BCD9;
+  margin: 0px;
+  padding: 24px 0px;
+}

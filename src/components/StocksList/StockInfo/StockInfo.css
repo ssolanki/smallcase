@@ -1,0 +1,44 @@
+.stockInfo{
+  background: #FFFFFF;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+  border-radius: 4px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.stockInfo p{
+  margin: 0px;
+}
+.info{
+  float: left;
+  width: 65%;
+}
+.name{
+  font-size: 16px;
+  color: #666666;
+  font-weight: bold;
+}
+.type{
+  font-size: 12px;
+  color: #89A6EC;
+  line-height: 12px;
+  margin-top: 5px! important;
+}
+.price{
+  font-size: 24px;
+  color: #666666;
+}
+.otherInfo{
+  float: right;
+  width: 35%;
+  text-align: right;
+}
+.button{
+
+}
+.clearfix:after{
+  content: "";
+  display: table;
+  clear: both;
+}
