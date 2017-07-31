@@ -8,10 +8,10 @@ import filterImgUrl from '../../images/filter.png'
 let cx = classNames.bind(styles)
 
 class StocksList extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
-      stockPrices: {"price":{}},
+      stockPrices: {'price': {}},
       perPageStocks: 8,
       pageNo: 0
     }
@@ -23,7 +23,7 @@ class StocksList extends React.Component {
   componentDidMount () {
     this.setState({stockPrices: this.props.stockPrices, addedStocks: this.props.addedStocks})
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     this.setState({stockPrices: nextProps.stockPrices, addedStocks: nextProps.addedStocks})
   }
   addStock (name) {
@@ -41,8 +41,8 @@ class StocksList extends React.Component {
     const perPageItems = this.state.perPageStocks
     const totalStocks = Object.keys(prices).length
     const pageNo = this.state.pageNo
-    const lowerIndex = pageNo*perPageItems + 1
-    const higherIndex = (pageNo+1)*perPageItems > totalStocks? totalStocks: ((pageNo+1)*perPageItems)
+    const lowerIndex = pageNo * perPageItems + 1
+    const higherIndex = (pageNo + 1) * perPageItems > totalStocks ? totalStocks : ((pageNo + 1) * perPageItems)
 
     const prevBtnClass = cx({
       prev: true,
@@ -50,22 +50,23 @@ class StocksList extends React.Component {
     })
     const nextBtnClass = cx({
       next: true,
-      disable: totalStocks < (pageNo+1) * perPageItems
+      disable: totalStocks < (pageNo + 1) * perPageItems
     })
 
     let stocksList = []
     Object.keys(prices).map((key, index) => {
-      if(index >= (pageNo+1)*perPageItems || index < pageNo* perPageItems)
+      if (index >= (pageNo + 1) * perPageItems || (index < pageNo * perPageItems)) {
         return
-      const isStockAdded = Object.keys(addedStocks).includes(key)? true: false
-      stocksList.push(<div className={styles.col3} key={index}> <StockInfo name={key} price={prices[key]} addStock={this.addStock} isAdded={isStockAdded}/> </div>);
+      }
+      const isStockAdded = Object.keys(addedStocks).includes(key)
+      stocksList.push(<div className={styles.col3} key={index}> <StockInfo name={key} price={prices[key]} addStock={this.addStock} isAdded={isStockAdded} /> </div>)
     })
 
     return (
       <div>
         <div className={styles.container}>
           <div className={styles.banner}> Pick Stocks </div>
-          <div className={styles.bannerAngle}></div>
+          <div className={styles.bannerAngle} />
           <div className={styles.info}>
             Showing {lowerIndex} - {higherIndex} of {totalStocks} matching stocks
           </div>

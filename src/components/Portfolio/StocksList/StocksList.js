@@ -7,17 +7,15 @@ import classNames from 'classnames/bind'
 let cx = classNames.bind(styles)
 
 const StocksList = ({changeStockCount, stocks, prices, netWorth}) => {
-
   let stocksList = []
 
   Object.keys(stocks).map((key, index) => {
-    const stock = stocks[key]
     const stockRowClass = cx({
       stockRow: true,
       oddRow: index % 2 === 0,
       evenRow: index % 2 === 1
     })
-    const weight = ((prices[key] * stocks[key].count * 100)/netWorth).toFixed(2)
+    const weight = ((prices[key] * stocks[key].count * 100) / netWorth).toFixed(2)
     stocksList.push(
       <tr className={stockRowClass} key={key}>
         <td className={styles.stockName}> {key} </td>

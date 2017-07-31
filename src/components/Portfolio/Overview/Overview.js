@@ -7,7 +7,7 @@ const Overview = ({stocks, prices, netWorth, eps}) => {
   Object.keys(stocks).map((key) => {
     totalEarnings += eps[key] * stocks[key]['count']
   })
-  const PERatio = (netWorth/totalEarnings).toFixed(2)
+  const PERatio = (netWorth / totalEarnings).toFixed(2)
   const PBRatio = PERatio // don't know formula so on UI showing same as PERatio
 
   return (
@@ -16,7 +16,7 @@ const Overview = ({stocks, prices, netWorth, eps}) => {
         <div className={styles.header}> Portfolio Overview </div>
         <div className={styles.overview}>
           <div className={styles.graph}>
-            <canvas id="chart"></canvas>
+            <canvas id='chart' />
           </div>
           <div className={styles.details}>
             <div className={styles.stats}>

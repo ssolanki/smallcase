@@ -10,8 +10,8 @@ import price from '../../data.json'
 import styles from './App.css'
 import '../../base.css'
 
-class App extends React.Component{
-  constructor() {
+class App extends React.Component {
+  constructor () {
     super()
     this.state = {
       price: price,
@@ -23,29 +23,31 @@ class App extends React.Component{
 
   addStock (stock) {
     let addedStocks = Object.assign({}, this.state.addedStocks)
-    if(Object.keys(addedStocks).includes(stock))
-      return
+    if (Object.keys(addedStocks).includes(stock)) {
+      return false
+    }
     addedStocks[stock] = {count: 1}
-    this.setState({addedStocks: addedStocks})
+    this.setState({addedStocks})
   }
 
   changeCount (stock, val) {
     let addedStocks = Object.assign({}, this.state.addedStocks)
-    if((addedStocks[stock]['count'] === 1 && val === -1) || val === 0)
+    if ((addedStocks[stock]['count'] === 1 && val === -1) || val === 0) {
       delete addedStocks[stock]
-    else
+    } else {
       addedStocks[stock]['count'] += val
+    }
     this.setState({addedStocks})
   }
 
-  render() {
+  render () {
     const stockPrices = this.state.price
     const addedStocks = this.state.addedStocks
 
     return (
       <BrowserRouter>
         <div>
-          <div className={styles.header}></div>
+          <div className={styles.header} />
           <div className={styles.content}>
             <h3 className={styles.heading}> smallcase portfolio builder </h3>
             <StocksList stockPrices={stockPrices} addStock={this.addStock} addedStocks={addedStocks} />

@@ -19,7 +19,7 @@ const StockInfo = ({name, price, addStock, isAdded}) => {
       </div>
       <div className={styles.otherInfo}>
         <p className={styles.price}> &#8377; {price} </p>
-        <div className={styles.button} onClick={() => {addStock(name)}}> </div>
+        <div className={styles.button} onClick={() => { addStock(name) }} />
       </div>
     </div>
   )

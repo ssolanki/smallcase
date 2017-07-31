@@ -6,11 +6,11 @@ import Overview from './Overview/Overview'
 
 import Chart from 'chart.js'
 
-class Portfolio extends React.Component{
-  constructor() {
+class Portfolio extends React.Component {
+  constructor () {
     super()
     this.state = {
-      stockPrices: {"price":{}},
+      stockPrices: {'price': {}},
       addedStocks: {}
     }
     this.perPageStocks = 8
@@ -19,69 +19,68 @@ class Portfolio extends React.Component{
   componentDidMount () {
     this.setState({stockPrices: this.props.stockPrices, addedStocks: this.props.addedStocks})
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     this.setState({stockPrices: nextProps.stockPrices, addedStocks: nextProps.addedStocks})
   }
-  changeCount(stock, val) {
+  changeCount (stock, val) {
     this.props.changeCount(stock, val)
   }
   componentDidUpdate () {
     let graph = document.getElementById('chart')
     const historical = this.state.stockPrices.historical
     const stocks = this.state.addedStocks
-    if (!graph)
+    if (!graph) {
       return false
+    }
 
-    let netWorth = {} //netWorth object
+    let netWorth = {} //  netWorth object
     Object.keys(historical).map((stock) => {
-      const shareHeld = stocks[stock]? stocks[stock]['count']: 0
+      const shareHeld = stocks[stock] ? stocks[stock]['count'] : 0
       historical[stock]['point'].forEach((priceObj, index) => {
-        if(netWorth.hasOwnProperty(priceObj['date'])){
+        if (netWorth.hasOwnProperty(priceObj['date'])) {
           netWorth[priceObj['date']] += priceObj['price'] * shareHeld
         } else {
-          if (priceObj['price'] * shareHeld > 0)
+          if (priceObj['price'] * shareHeld > 0) {
             netWorth[priceObj['date']] = priceObj['price'] * shareHeld
+          }
         }
       })
     })
 
     console.log(netWorth)
-
     const dateKeys = Object.keys(netWorth).map((val) => {
       const timeDiff = Math.abs((new Date(val)).getTime() - (new Date(Object.keys(netWorth)[0])).getTime())
-      return  Math.ceil(timeDiff / (1000 * 3600 * 24))
+      return Math.ceil(timeDiff / (1000 * 3600 * 24))
     })
 
     const data = {
       labels: dateKeys,
-      datasets: [
-        {
-          backgroundColor: '#82AFE4',
-					borderColor: '#1D70CA',
-					data: Object.values(netWorth),
-					label: 'Dataset',
-					fill: 'start'
-        }
-      ]
+      datasets: [{
+        backgroundColor: '#82AFE4',
+        borderColor: '#1D70CA',
+        data: Object.values(netWorth),
+        label: 'Dataset',
+        fill: 'start'
+      }]
     }
 
-    const ctx = graph.getContext("2d");
-
-    const myChart = new Chart('chart', {
+    const chart = new Chart('chart', {
 			type: 'line',
 			data: {
-				labels: data.labels,
+        labels: data.labels,
 				datasets: data.datasets
 			}
 		})
   }
+
   render () {
     const prices = this.state.stockPrices.price
     const eps = this.state.stockPrices.eps
     const addedStocks = this.state.addedStocks
-    const totalStocks = Object.keys(prices).length
-    if (Object.keys(addedStocks).length === 0)
+
+    if (Object.keys(addedStocks).length === 0) {
       return false
+    }
 
     let netWorth = 0
     Object.keys(addedStocks).map((key) => {
@@ -92,7 +91,7 @@ class Portfolio extends React.Component{
       <div>
         <div className={styles.container}>
           <div className={styles.banner}> Manage Portfolio </div>
-          <div className={styles.bannerAngle}></div>
+          <div className={styles.bannerAngle} />
           <div className={styles.clearfix}>
             <div className={styles.stocksInfo}>
               { Object.keys(addedStocks).length > 0 &&
