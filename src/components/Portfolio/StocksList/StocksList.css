@@ -16,6 +16,9 @@
 .stocksList tbody tr td{
   font-size: 14px;
 }
+.price, .weight{
+  font-family: ProximaNova-Light;
+}
 .stockName{
   color: #287DCE;
   text-transform: uppercase;
@@ -36,7 +39,7 @@
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
   border-radius: 4px;
-  font-size: 0px;
+  font-size: 0px; /* hack for space issue */
   line-height: 16px;
   width: 80px;
 }
@@ -59,6 +62,7 @@
   text-align: center;
   cursor: pointer;
   font-weight: bold;
+  margin-right: -2px; /* hack for space issue */
 }
 .stocksList th:nth-child(4n+1), .stocksList td:nth-child(4n+1){
   width: 35%;

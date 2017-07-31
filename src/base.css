@@ -1,10 +1,14 @@
 @font-face {
-  font-family: proximaNova;
+  font-family: ProximaNova-Light;
   src: url(./fonts/proxima-nova-light.otf);
+}
+@font-face {
+  font-family: ProximaNova-Semibold;
+  src: url(./fonts/proxima-nova-semibold.otf);
 }
 
 body{
-  font-family: proximaNova;
+  font-family: ProximaNova-Semibold;
   font-size: 16px;
   min-height: 100vh;
 }

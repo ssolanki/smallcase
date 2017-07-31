@@ -28,4 +28,18 @@
 .stocksInfo{
   width: 40%;
   padding: 0px 15px;
+  box-sizing: border-box;
+  float: left;
+}
+.overview{
+  width: 60%;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  float: right;
+}
+
+.clearfix:after{
+  content: "";
+  display: table;
+  clear: both;
 }

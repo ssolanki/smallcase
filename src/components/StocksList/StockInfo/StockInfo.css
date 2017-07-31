@@ -27,6 +27,7 @@
 .price{
   font-size: 24px;
   color: #666666;
+  font-family: ProximaNova-Light;
 }
 .otherInfo{
   float: right;
