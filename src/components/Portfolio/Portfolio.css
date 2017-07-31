@@ -1,0 +1,31 @@
+.container{
+  position: relative;
+  margin: 30px 15px;
+  padding: 50px 15px;
+  background: #fff;
+}
+.banner{
+  background: #287DCE;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 10px 20px;
+  position: absolute;
+  top: -8px;
+  left: -15px;
+  z-index: 1;
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.20);
+}
+.bannerAngle{
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  width: 16px;
+  width: 0;
+  height: 0;
+  border-top: 24px solid #15569C;
+  border-left: 16px solid transparent;
+}
+.stocksInfo{
+  width: 40%;
+  padding: 0px 15px;
+}

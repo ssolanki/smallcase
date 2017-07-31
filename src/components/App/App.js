@@ -3,6 +3,7 @@ import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 
 import StocksList from '../StocksList/StocksList'
+import Portfolio from '../Portfolio/Portfolio'
 
 import 'normalize.css'
 import price from '../../data.json'
@@ -16,6 +17,7 @@ const App = () => (
       <div className={styles.content}>
         <h3 className={styles.heading}> smallcase Portfolio Builder </h3>
         <StocksList />
+        <Portfolio />
       </div>
     </div>
   </BrowserRouter>

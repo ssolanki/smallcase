@@ -10,9 +10,7 @@ const StocksList = () => {
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.banner}>
-          Pick Stocks
-        </div>
+        <div className={styles.banner}> Pick Stocks </div>
         <div className={styles.bannerAngle}></div>
         <div className={styles.info}>
           Showing 6 - 12 of 23 matching stocks
@@ -32,7 +30,7 @@ const StocksList = () => {
         <div className={styles.col3}>
           <StockInfo />
         </div>
-        <div className={"clearfix " + styles.actionSection}>
+        <div className={styles.actionSection}>
           <div className={styles.prev}> prev </div>
           <div className={styles.next}> next </div>
         </div>

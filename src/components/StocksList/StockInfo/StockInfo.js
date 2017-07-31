@@ -18,6 +18,7 @@ const StockInfo = () => {
       </div>
       <div className={styles.otherInfo}>
         <p className={styles.price}> &#8377; 1234 </p>
+        <div className={styles.button}> </div>
       </div>
     </div>
   )

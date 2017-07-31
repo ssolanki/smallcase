@@ -1,0 +1,82 @@
+.stocksList{
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
+}
+
+.heading{
+  background: #8FB9E7;
+}
+.heading th{
+  font-size: 12px;
+  color: #FFFFFF;
+  padding: 13px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+.stocksList tbody tr td{
+  font-size: 14px;
+}
+.stockName{
+  color: #287DCE;
+  text-transform: uppercase;
+}
+.oddRow{
+  background: #FFF;
+}
+.evenRow{
+  background: #FAFAFA;
+}
+.removeIcon{
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  margin: 2px 0px 0px 20px;
+}
+.shareInput{
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  font-size: 0px;
+  line-height: 16px;
+  width: 80px;
+}
+.shareInput .value{
+  width: 40px;
+  color: #222222;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px 0px;
+  border: none;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  box-sizing: border-box;
+}
+.shareInput .minus, .shareInput .plus{
+  color: #287DCE;
+  width: 20px! important;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.stocksList th:nth-child(4n+1), .stocksList td:nth-child(4n+1){
+  width: 35%;
+}
+.stocksList th:nth-child(4n+2), .stocksList td:nth-child(4n+2){
+  width: 15%;
+}
+.stocksList th:nth-child(4n+3){
+  width: 25%;
+  padding-left: 30px;
+}
+.stocksList td:nth-child(4n+3){
+  width: 25%;
+}
+.stocksList th:nth-child(4n){
+  width: 25%;
+}
+.stocksList td:nth-child(4n){
+  width: 25%;
+  padding-left: 30px;
+}

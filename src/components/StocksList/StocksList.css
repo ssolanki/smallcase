@@ -1,6 +1,6 @@
 .container{
   position: relative;
-  margin: 0px 15px;
+  margin: 10px 15px 0px;
   padding: 30px 15px;
   background: #fff;
 }
@@ -19,15 +19,17 @@
   top: -8px;
   left: -15px;
   z-index: 1;
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.20);
 }
 .bannerAngle{
-  background: #098DAD;
   position: absolute;
-  top: -8px;
+  top: 30px;
   left: -15px;
   width: 16px;
-  z-index: 0;
-  height: 50px;
+  width: 0;
+  height: 0;
+  border-top: 24px solid #098DAD;
+  border-left: 16px solid transparent;
 }
 .col3{
   width: 25%;
@@ -39,12 +41,20 @@
   padding: 0px 15px;
   margin-top: 10px;
 }
+.actionSection:after{
+  content: "";
+  display: table;
+  clear: both;
+}
 .next{
   font-size: 16px;
   color: #00A9D2;
   float: right;
   text-transform: uppercase;
   cursor: pointer;
+}
+.next:hover{
+  text-decoration: underline;
 }
 .prev{
   opacity: 0.3;
@@ -53,4 +63,7 @@
   float: left;
   text-transform: uppercase;
   cursor: pointer;
+}
+.prev:hover{
+  text-decoration: underline;
 }

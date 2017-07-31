@@ -30,7 +30,7 @@ module.exports = {
       test: /\.css$/,
       use: ExtractTextPlugin.extract(['css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]",camelCase'])
     }, {
-      test: /\.(png|woff|woff2|eot|otf|ttf|svg)$/, 
+      test: /\.(jpe?g$|gif|png|woff|woff2|eot|otf|ttf|svg)$/,
       loader: 'file-loader?limit=100000'
     }]
   },

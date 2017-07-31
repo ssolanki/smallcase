@@ -17,7 +17,6 @@
 .name{
   font-size: 16px;
   color: #666666;
-  font-weight: bold;
 }
 .type{
   font-size: 12px;
@@ -35,7 +34,13 @@
   text-align: right;
 }
 .button{
-
+  width: 26px;
+  height: 26px;
+  float: right;
+  background: url('../../../images/add_circle.png');
+  background-repeat: no-repeat;
+  background-size: 26px 26px;
+  cursor: pointer;
 }
 .clearfix:after{
   content: "";
