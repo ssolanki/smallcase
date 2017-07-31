@@ -57,7 +57,7 @@ class StocksList extends React.Component {
     Object.keys(prices).map((key, index) => {
       if(index >= (pageNo+1)*perPageItems || index < pageNo* perPageItems)
         return
-      const isStockAdded = addedStocks.includes(key)? true: false
+      const isStockAdded = Object.keys(addedStocks).includes(key)? true: false
       stocksList.push(<div className={styles.col3} key={index}> <StockInfo name={key} price={prices[key]} addStock={this.addStock} isAdded={isStockAdded}/> </div>);
     })
 

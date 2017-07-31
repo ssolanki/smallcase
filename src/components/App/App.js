@@ -15,16 +15,27 @@ class App extends React.Component{
     super()
     this.state = {
       price: price,
-      addedStocks: []
+      addedStocks: {}
     }
     this.addStock = this.addStock.bind(this)
+    this.changeCount = this.changeCount.bind(this)
   }
 
   addStock (stock) {
-    let addedStocks = this.state.addedStocks
-    if(addedStocks.includes(stock))
+    let addedStocks = Object.assign({}, this.state.addedStocks)
+    if(Object.keys(addedStocks).includes(stock))
       return
-    this.setState({addedStocks: addedStocks.concat(stock)})
+    addedStocks[stock] = {count: 1}
+    this.setState({addedStocks: addedStocks})
+  }
+
+  changeCount (stock, val) {
+    let addedStocks = Object.assign({}, this.state.addedStocks)
+    if((addedStocks[stock]['count'] === 1 && val === -1) || val === 0)
+      delete addedStocks[stock]
+    else
+      addedStocks[stock]['count'] += val
+    this.setState({addedStocks})
   }
 
   render() {
@@ -37,8 +48,8 @@ class App extends React.Component{
           <div className={styles.header}></div>
           <div className={styles.content}>
             <h3 className={styles.heading}> smallcase portfolio builder </h3>
-            <StocksList stockPrices={stockPrices} addStock={this.addStock} addedStocks={addedStocks}/>
-            <Portfolio stockPrices={stockPrices} />
+            <StocksList stockPrices={stockPrices} addStock={this.addStock} addedStocks={addedStocks} />
+            <Portfolio stockPrices={stockPrices} changeCount={this.changeCount} addedStocks={addedStocks} />
           </div>
         </div>
       </BrowserRouter>

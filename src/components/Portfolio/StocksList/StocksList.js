@@ -2,8 +2,38 @@ import React from 'react'
 
 import styles from './StocksList.css'
 import imgSrc from '../../../images/remove_circle.png'
+import classNames from 'classnames/bind'
 
-const StocksList = () => {
+let cx = classNames.bind(styles)
+
+const StocksList = ({changeStockCount, stocks, prices, netWorth}) => {
+
+  let stocksList = []
+
+  Object.keys(stocks).map((key, index) => {
+    const stock = stocks[key]
+    const stockRowClass = cx({
+      stockRow: true,
+      oddRow: index % 2 === 0,
+      evenRow: index % 2 === 1
+    })
+    const weight = ((prices[key] * stocks[key].count * 100)/netWorth).toFixed(2)
+    stocksList.push(
+      <tr className={stockRowClass} key={key}>
+        <td className={styles.stockName}> {key} </td>
+        <td className={styles.price}> &#8377; {prices[key]} </td>
+        <td>
+          <div className={styles.shareInput}>
+            <div className={styles.minus} onClick={(e) => changeStockCount(key, -1)}>-</div>
+            <input className={styles.value} value={stocks[key].count} />
+            <div className={styles.plus} onClick={(e) => changeStockCount(key, +1)}>+</div>
+          </div>
+        </td>
+        <td className={styles.weight}> {weight}% <img src={imgSrc} className={styles.removeIcon} onClick={(e) => changeStockCount(key, 0)} /> </td>
+      </tr>
+    )
+  })
+
   return (
     <div>
       <table className={styles.stocksList}>
@@ -16,30 +46,7 @@ const StocksList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className={styles.oddRow}>
-            <td className={styles.stockName}> adaint </td>
-            <td className={styles.price}> &#8377; 123 </td>
-            <td> <div className={styles.shareInput}> <div className={styles.minus}>-</div> <input className={styles.value} value={23} /> <div className={styles.plus}>+</div> </div> </td>
-            <td className={styles.weight}> 23.3% <img src={imgSrc} className={styles.removeIcon} /> </td>
-          </tr>
-          <tr className={styles.evenRow}>
-            <td className={styles.stockName}> adaint </td>
-            <td className={styles.price}> &#8377; 123 </td>
-            <td> <div className={styles.shareInput}> <div className={styles.minus}>-</div> <input className={styles.value} value={23} /> <div className={styles.plus}>+</div> </div> </td>
-            <td className={styles.weight}> 23.3% </td>
-          </tr>
-          <tr className={styles.oddRow}>
-            <td className={styles.stockName}> adaint </td>
-            <td className={styles.price}> &#8377; 123 </td>
-            <td> <div className={styles.shareInput}> <div className={styles.minus}>-</div> <input className={styles.value} value={23} /> <div className={styles.plus}>+</div> </div> </td>
-            <td className={styles.weight}> 23.3% </td>
-          </tr>
-          <tr className={styles.evenRow}>
-            <td className={styles.stockName}> adaint </td>
-            <td className={styles.price}> &#8377; 123 </td>
-            <td> <div className={styles.shareInput}> <div className={styles.minus}>-</div> <input className={styles.value} value={23} /> <div className={styles.plus}>+</div> </div> </td>
-            <td className={styles.weight}> 23.3% </td>
-          </tr>
+          {stocksList}
         </tbody>
       </table>
     </div>
