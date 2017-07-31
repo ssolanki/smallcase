@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './StocksList.css'
 import classNames from 'classnames/bind'
 import StockInfo from './StockInfo/StockInfo'
+import filterImgUrl from '../../images/filter.png'
 
 let cx = classNames.bind(styles)
 
@@ -20,7 +21,6 @@ class StocksList extends React.Component {
     this.showNextStocks = this.showNextStocks.bind(this)
   }
   componentDidMount () {
-    console.log(this.props)
     this.setState({stockPrices: this.props.stockPrices, addedStocks: this.props.addedStocks})
   }
   componentWillReceiveProps(nextProps) {
@@ -54,7 +54,6 @@ class StocksList extends React.Component {
     })
 
     let stocksList = []
-    console.log(addedStocks)
     Object.keys(prices).map((key, index) => {
       if(index >= (pageNo+1)*perPageItems || index < pageNo* perPageItems)
         return
@@ -69,6 +68,11 @@ class StocksList extends React.Component {
           <div className={styles.bannerAngle}></div>
           <div className={styles.info}>
             Showing {lowerIndex} - {higherIndex} of {totalStocks} matching stocks
+          </div>
+          <div className={styles.filters}>
+            <img src={filterImgUrl} />
+            <span className={styles.text}> apply filters </span>
+            <span className={styles.count}> 3 </span>
           </div>
           {stocksList}
           <div className={styles.actionSection}>

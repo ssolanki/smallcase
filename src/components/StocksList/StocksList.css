@@ -10,6 +10,36 @@
   padding: 25px 15px;
   font-weight: bold;
 }
+.filters{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.30);
+  border-radius: 2px;
+  padding: 10px 15px;
+}
+.filters img{
+  margin: 0px 5px 0px 0px;
+  position: relative;
+  top: 4px;
+}
+.filters .text{
+  font-size: 16px;
+  color: #00A9D2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-right: 40px
+}
+.filters .count{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #FFFFFF;
+  background: #009FCE;
+  padding: 5px 8px;
+}
 .banner{
   background: #00B3D6;
   text-transform: uppercase;

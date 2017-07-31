@@ -30,7 +30,7 @@ class App extends React.Component{
   render() {
     const stockPrices = this.state.price
     const addedStocks = this.state.addedStocks
-    console.log(addedStocks, stockPrices)
+
     return (
       <BrowserRouter>
         <div>
