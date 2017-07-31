@@ -25,6 +25,7 @@ class Portfolio extends React.Component{
   }
   render () {
     const prices = this.state.stockPrices.price
+    const eps = this.state.stockPrices.eps
     const addedStocks = this.state.addedStocks
     const totalStocks = Object.keys(prices).length
     if (Object.keys(addedStocks).length === 0)
@@ -34,7 +35,6 @@ class Portfolio extends React.Component{
     Object.keys(addedStocks).map((key) => {
       netWorth += prices[key] * addedStocks[key]['count']
     })
-    console.log(netWorth)
 
     return (
       <div>
@@ -44,11 +44,11 @@ class Portfolio extends React.Component{
           <div className={styles.clearfix}>
             <div className={styles.stocksInfo}>
               { Object.keys(addedStocks).length > 0 &&
-                <StocksList stocks={addedStocks} changeStockCount={this.changeCount} prices={prices} netWorth={netWorth}/>
+                <StocksList stocks={addedStocks} changeStockCount={this.changeCount} prices={prices} netWorth={netWorth} />
               }
             </div>
             <div className={styles.overview}>
-              <Overview />
+              <Overview stocks={addedStocks} prices={prices} netWorth={netWorth} eps={eps} />
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@
 .overview{
   margin-top: 20px;
 }
-.overview:after{
+.overview:after, .stats:after, .details:after{
   content: "";
   display: table;
   clear: both;
@@ -17,7 +17,7 @@
   width: 60%;
   float: left;
   background: #ccc;
-  height: 150px;
+  height: 200px;
   box-sizing: border-box;
   padding: 0px 15px;
 }

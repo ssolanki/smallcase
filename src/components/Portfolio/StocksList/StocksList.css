@@ -1,7 +1,6 @@
 .stocksList{
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.20);
 }
-
 .heading{
   background: #8FB9E7;
 }
@@ -56,7 +55,7 @@
   border: none;
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD;
-  box-sizing: border-box;
+  display: inline-block;
 }
 .shareInput .minus, .shareInput .plus{
   color: #287DCE;
@@ -69,10 +68,10 @@
   margin-right: -2px; /* hack for space issue */
 }
 .stocksList th:nth-child(4n+1), .stocksList td:nth-child(4n+1){
-  width: 35%;
+  width: 30%;
 }
 .stocksList th:nth-child(4n+2), .stocksList td:nth-child(4n+2){
-  width: 15%;
+  width: 20%;
 }
 .stocksList th:nth-child(4n+3){
   width: 25%;

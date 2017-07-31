@@ -25,7 +25,7 @@ const StocksList = ({changeStockCount, stocks, prices, netWorth}) => {
         <td>
           <div className={styles.shareInput}>
             <div className={styles.minus} onClick={(e) => changeStockCount(key, -1)}>-</div>
-            <input className={styles.value} value={stocks[key].count} />
+            <div className={styles.value} > {stocks[key].count} </div>
             <div className={styles.plus} onClick={(e) => changeStockCount(key, +1)}>+</div>
           </div>
         </td>
