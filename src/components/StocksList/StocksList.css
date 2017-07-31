@@ -56,8 +56,11 @@
 .next:hover{
   text-decoration: underline;
 }
-.prev{
+.disable{
+  pointer-events: none;
   opacity: 0.3;
+}
+.prev{
   font-size: 16px;
   color: #00A9D2;
   float: left;

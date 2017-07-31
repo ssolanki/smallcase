@@ -7,6 +7,9 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.added{
+  background: #f5fff2;
+}
 .stockInfo p{
   margin: 0px;
 }
@@ -34,6 +37,12 @@
   width: 35%;
   text-align: right;
 }
+.otherInfo:hover .price{
+  display: none;
+}
+.otherInfo:hover .button{
+  display: block;
+}
 .button{
   width: 26px;
   height: 26px;
@@ -42,6 +51,7 @@
   background-repeat: no-repeat;
   background-size: 26px 26px;
   cursor: pointer;
+  display: none;
 }
 .clearfix:after{
   content: "";
