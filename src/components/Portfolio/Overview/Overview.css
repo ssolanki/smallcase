@@ -16,7 +16,6 @@
 .graph{
   width: 60%;
   float: left;
-  background: #ccc;
   height: 200px;
   box-sizing: border-box;
   padding: 0px 15px;
@@ -59,6 +58,5 @@
   border-radius: 3px;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
 }

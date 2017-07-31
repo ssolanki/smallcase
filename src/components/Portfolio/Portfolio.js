@@ -4,6 +4,8 @@ import styles from './Portfolio.css'
 import StocksList from './StocksList/StocksList'
 import Overview from './Overview/Overview'
 
+import Chart from 'chart.js'
+
 class Portfolio extends React.Component{
   constructor() {
     super()
@@ -22,6 +24,56 @@ class Portfolio extends React.Component{
   }
   changeCount(stock, val) {
     this.props.changeCount(stock, val)
+  }
+  componentDidUpdate () {
+    let graph = document.getElementById('chart')
+    const historical = this.state.stockPrices.historical
+    const stocks = this.state.addedStocks
+    if (!graph)
+      return false
+
+    let netWorth = {} //netWorth object
+    Object.keys(historical).map((stock) => {
+      const shareHeld = stocks[stock]? stocks[stock]['count']: 0
+      historical[stock]['point'].forEach((priceObj, index) => {
+        if(netWorth.hasOwnProperty(priceObj['date'])){
+          netWorth[priceObj['date']] += priceObj['price'] * shareHeld
+        } else {
+          if (priceObj['price'] * shareHeld > 0)
+            netWorth[priceObj['date']] = priceObj['price'] * shareHeld
+        }
+      })
+    })
+
+    console.log(netWorth)
+
+    const dateKeys = Object.keys(netWorth).map((val) => {
+      const timeDiff = Math.abs((new Date(val)).getTime() - (new Date(Object.keys(netWorth)[0])).getTime())
+      return  Math.ceil(timeDiff / (1000 * 3600 * 24))
+    })
+
+    const data = {
+      labels: dateKeys,
+      datasets: [
+        {
+          backgroundColor: '#82AFE4',
+					borderColor: '#1D70CA',
+					data: Object.values(netWorth),
+					label: 'Dataset',
+					fill: 'start'
+        }
+      ]
+    }
+
+    const ctx = graph.getContext("2d");
+
+    const myChart = new Chart('chart', {
+			type: 'line',
+			data: {
+				labels: data.labels,
+				datasets: data.datasets
+			}
+		})
   }
   render () {
     const prices = this.state.stockPrices.price

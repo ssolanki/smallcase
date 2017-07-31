@@ -1,7 +1,6 @@
 import React from 'react'
 
 import styles from './Overview.css'
-import * as d3 from 'd3';
 
 const Overview = ({stocks, prices, netWorth, eps}) => {
   let totalEarnings = 0
@@ -9,13 +8,15 @@ const Overview = ({stocks, prices, netWorth, eps}) => {
     totalEarnings += eps[key] * stocks[key]['count']
   })
   const PERatio = (netWorth/totalEarnings).toFixed(2)
-  const PBRatio = PERatio
+  const PBRatio = PERatio // don't know formula so on UI showing same as PERatio
+
   return (
     <div>
       <div className={styles.container}>
         <div className={styles.header}> Portfolio Overview </div>
         <div className={styles.overview}>
           <div className={styles.graph}>
+            <canvas id="chart"></canvas>
           </div>
           <div className={styles.details}>
             <div className={styles.stats}>
@@ -32,7 +33,7 @@ const Overview = ({stocks, prices, netWorth, eps}) => {
                   net worth
                 </p>
                 <p className={styles.val}>
-                  &#8377; {netWorth}
+                  &#8377; {netWorth.toFixed(2)}
                 </p>
               </div>
               <div className={styles.col6}>
