@@ -59,7 +59,7 @@ class Portfolio extends React.Component {
         backgroundColor: '#82AFE4',
         borderColor: '#1D70CA',
         data: Object.values(netWorth),
-        label: 'Dataset',
+        label: 'Price/Time Graph',
         fill: 'start'
       }]
     }
