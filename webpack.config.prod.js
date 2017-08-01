@@ -12,7 +12,7 @@ module.exports = {
   context: resolve(__dirname, 'src'),
   entry: {
     app: './index.js',
-    vendor: ['react', 'react-dom', 'react-router', 'chart.js'],
+    vendor: ['react', 'react-dom', 'react-router']
   },
   output: {
     path: resolve(__dirname, 'dist'),
@@ -59,7 +59,10 @@ module.exports = {
     }),
     new DashboardPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      'name': 'vendor'
+      name: 'vendor',
+      minChunks: Infinity,
+      children: true,
+      async: true
     }),
     new CopyWebpackPlugin([{
       from: resolve(__dirname, './src/fonts/'),

@@ -3,9 +3,8 @@ import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 
 import StocksList from '../StocksList/StocksList'
-import Portfolio from '../Portfolio/Portfolio'
+import PortfolioAsync from '../Portfolio/PortfolioAsync'
 
-import 'normalize.css'
 import price from '../../data.json'
 import styles from './App.css'
 import '../../base.css'
@@ -51,7 +50,9 @@ class App extends React.Component {
           <div className={styles.content}>
             <h3 className={styles.heading}> smallcase portfolio builder </h3>
             <StocksList stockPrices={stockPrices} addStock={this.addStock} addedStocks={addedStocks} />
-            <Portfolio stockPrices={stockPrices} changeCount={this.changeCount} addedStocks={addedStocks} />
+            { Object.keys(addedStocks).length > 0 &&
+              <PortfolioAsync props={Object.assign({}, {stockPrices: stockPrices}, {changeCount: this.changeCount}, {addedStocks: addedStocks})} />
+            }
           </div>
         </div>
       </BrowserRouter>
