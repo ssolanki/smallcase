@@ -5,6 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import StocksList from '../StocksList/StocksList'
 import PortfolioAsync from '../Portfolio/PortfolioAsync'
 
+import 'normalize.css'
 import price from '../../data.json'
 import styles from './App.css'
 import '../../base.css'
