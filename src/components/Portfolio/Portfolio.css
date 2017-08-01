@@ -43,3 +43,8 @@
   display: table;
   clear: both;
 }
+@media (max-width: 768px) {
+  .stocksInfo, .overview{
+    width: 100%;
+  }
+}

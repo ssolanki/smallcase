@@ -28,7 +28,16 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract(['css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]",camelCase'])
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentName: '[name]-[local]-[hash:base64:6]',
+          camelCase: true
+        }
+      }]
     }, {
       test: /\.(jpe?g$|gif|png|woff|woff2|eot|otf|ttf|svg)$/,
       loader: 'file-loader?limit=100000'

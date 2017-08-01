@@ -59,7 +59,7 @@ class StocksList extends React.Component {
         return
       }
       const isStockAdded = Object.keys(addedStocks).includes(key)
-      stocksList.push(<div className={styles.col3} key={index}> <StockInfo name={key} price={prices[key]} addStock={this.addStock} isAdded={isStockAdded} /> </div>)
+      stocksList.push(<div className={styles.stockWidget} key={index}> <StockInfo name={key} price={prices[key]} addStock={this.addStock} isAdded={isStockAdded} /> </div>)
     })
 
     return (
@@ -75,7 +75,9 @@ class StocksList extends React.Component {
             <span className={styles.text}> apply filters </span>
             <span className={styles.count}> 3 </span>
           </div>
-          {stocksList}
+          <div className={styles.stocksContainer}>
+            {stocksList}
+          </div>
           <div className={styles.actionSection}>
             <div className={prevBtnClass} onClick={this.showPrevStocks}> prev </div>
             <div className={nextBtnClass} onClick={this.showNextStocks}> next </div>

@@ -58,3 +58,11 @@
   display: table;
   clear: both;
 }
+@media (max-width: 768px) {
+  .otherInfo:hover .price{
+    display: block;
+  }
+  .button{
+    display: block;
+  }
+}
